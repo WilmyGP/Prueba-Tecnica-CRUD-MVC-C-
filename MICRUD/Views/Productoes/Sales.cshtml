@@ -1,0 +1,45 @@
+﻿@model MICRUD.Models.Producto
+
+@{
+    ViewData["Title"] = "Sales";
+}
+
+<h1>Vender Producto</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Sales">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Nombre" />
+            <input type="hidden" asp-for="Precio" />
+            <input type="hidden" asp-for="FechaExpiracion" />
+
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input class="form-control" name="cantidad" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Vender" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<p></p>
+
+<div>
+    <a asp-action="Index" class=" btn btn-secondary">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+    
+
